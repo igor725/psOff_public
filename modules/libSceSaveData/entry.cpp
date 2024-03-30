@@ -260,20 +260,6 @@ EXPORT SYSV_ABI int32_t sceSaveDataGetSaveDataMemory2(SceSaveDataMemoryGet2* par
     filesystem::close(icon_handle);
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
   return Ok;
 }
 
