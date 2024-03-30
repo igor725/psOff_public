@@ -46,14 +46,14 @@ jobs:
           inplace: true
 
       - name: Checkout pr
-        if: ${{ github.event.action == 'pull_request' }}
+        if: ${{ github.event_name == 'pull_request' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh pr checkout ${{ github.event.pull_request.number }}
 
       - name: Push if needed
-        if: ${{ github.event.action == 'pull_request' }}
+        if: ${{ github.event_name == 'pull_request' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -65,7 +65,7 @@ jobs:
             git push;
           fi
       - name: Show diff
-        if: ${{ github.event.action != 'pull_request' }}
+        if: ${{ github.event_name != 'pull_request' }}
         run: git diff --exit-code;
 
   build:
