@@ -57,6 +57,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if ! git diff --exit-code; then
+            git config user.name 'github-actions[bot]';
+            git config user.email 'github-actions[bot]@users.noreply.github.com';
             git commit -m "[skip ci] Fix code formatting";
             git push;
           fi
