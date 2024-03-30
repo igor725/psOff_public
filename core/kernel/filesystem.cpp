@@ -588,14 +588,6 @@ size_t pread(int handle, void* buf, size_t nbytes, int64_t offset) {
   file->clearError();
   file->lseek(offset, SceWhence::beg);
 
-
-
-
-
-
-
-
-
   auto const count = file->read((char*)buf, nbytes);
   if (auto err = file->getErr(); err != Ok) {
     return getErr((ErrCode)err);
