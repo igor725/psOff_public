@@ -237,19 +237,6 @@ EXPORT SYSV_ABI int32_t sceSaveDataGetSaveDataMemory2(SceSaveDataMemoryGet2* par
 
   filesystem::SceOpen oflags {.mode = filesystem::SceOpenMode::RDONLY};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   auto file_handle = filesystem::open(filename.c_str(), oflags, 0);
   if (file_handle < 0) return file_handle; // return the error code returned by filesystem::open
 
